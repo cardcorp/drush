@@ -144,6 +144,11 @@ function drush_format($input, $metadata = NULL, $format = NULL) {
  */
 function dt($string, $args = array()) {
   $output = NULL;
+
+  if (!is_array($args)) {
+    $args = array($args);
+  }
+
   if (function_exists('t') && drush_drupal_major_version() == 7) {
     $output = t($string, $args);
   }
